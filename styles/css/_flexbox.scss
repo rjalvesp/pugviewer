@@ -1,0 +1,31 @@
+$directions: column, row;
+
+$wraps: (
+  "wrap": wrap,
+  "no-wrap": nowrap,
+);
+
+.flex {
+  display: flex;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.flex-third {
+  flex: 0 0 33.33% !important;
+  max-width: 33.33% !important;
+}
+
+@each $direction in $directions {
+  .flex-#{$direction} {
+    flex-direction: #{$direction};
+  }
+}
+
+@each $name, $wrap in $wraps {
+  .flex-#{$name} {
+    flex-wrap: #{$wrap};
+  }
+}

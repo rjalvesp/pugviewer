@@ -1,0 +1,24 @@
+$grid: 12;
+$gaps: 4;
+
+$directions: "row-", "column-", "";
+
+.g {
+  display: grid;
+  grid-template-columns: repeat($grid, 1fr);
+  width: 100%;
+}
+
+@for $idx from 1 through $grid {
+  .g-#{$idx} {
+    grid-column: span #{$idx};
+  }
+}
+
+@for $idx from 1 through $gaps {
+  @each $direction in $directions {
+    .g-#{$direction}gap-#{$idx} {
+      grid-#{$direction}gap: #{$idx / 4}rem;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "makena-scef-pdf-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "node-fetch": "^2.6.1",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "2.0.0-beta11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PresencePG/makena-scef-pdf-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PresencePG/makena-scef-pdf-generator/issues"
+  },
+  "homepage": "https://github.com/PresencePG/makena-scef-pdf-generator#readme",
+  "devDependencies": {
+    "puppeteer": "^5.5.0"
+  }
+}

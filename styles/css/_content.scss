@@ -1,0 +1,61 @@
+.comments {
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.checkbox {
+  height: 12px;
+  width: 12px;
+
+  border-radius: 2px;
+  border: 1px solid rgba(#2d2f30, 0.5);
+
+  margin: 0 8px 0 0;
+
+  &.checked {
+    text-align: center;
+    font-weight: bold;
+
+    color: black;
+
+    font-size: 10px;
+  }
+}
+
+.start {
+  margin-top: 84px;
+}
+
+.second {
+  margin-top: 56px;
+}
+
+.empty {
+  color: #6e6e6e;
+
+  opacity: 0.87;
+}
+
+.link {
+  color: #0421f5;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.break {
+  page-break-after: always;
+}
+
+.center {
+  text-align: center;
+}
+
+.state {
+  font-size: 11px !important;
+}

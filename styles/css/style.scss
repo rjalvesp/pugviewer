@@ -1,0 +1,47 @@
+@import "./content";
+@import "./flexbox";
+@import "./footer";
+@import "./gridbox";
+@import "./gutter";
+@import "./header";
+@import "./spacing";
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.content {
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+
+  line-height: 1.4;
+  letter-spacing: normal;
+
+  text-align: left;
+
+  color: #000000;
+
+  word-break: break-word;
+  // page-break-after: always;
+}
+
+body {
+  padding: 24px 48px;
+}
+
+tr {
+  page-break-after: always;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}

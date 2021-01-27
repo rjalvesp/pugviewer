@@ -1,0 +1,80 @@
+html
+    head
+        link(rel='stylesheet', href='/css/style.css')
+        style 
+            include ../public/css/style.css
+    body
+        include includes/header.pug
+        include includes/footer.pug
+        
+        div(class="content start")
+            div(class="mb-8")
+            div(class="mb-4") Dear Makena Investor,
+            div(class="mb-4") As a result of your investment(s) with Makena, you may have #{year} state income tax return filing obligations. In an effort to minimize your state filing responsibilities, Makena would like to offer you the opportunity to participate in Makena’s #{year} state composite tax filings.
+            div(class="mb-4") The purpose of a state composite tax return is to relieve you from filing your own state tax return and remitting tax payments to a state. The composite tax returns indicate the income allocated to each participating nonresident partner. Every state filing requirement is different so please note the following:
+            ul(class="ml-8 mb-4")
+                li You cannot be included in a composite return for a state where you are a resident
+                li You cannot be included in a composite return for a state where you receive income from more than one source
+                li You may be required to file a tax return in states where you are not eligible to be included in a composite return or where you elect to be excluded
+                li If you chose not to participate in the composite return filing in a state, Makena may still be required to withhold tax on your behalf
+            div(class="mb-4") It is important to note that the tax reported on each composite return is expected to be computed at the highest rate without any deductions, exemptions or credits. Therefore, your tax liability as a member of the composite return may be greater than if you were to file your own tax return. Also, it is likely that any state sourced loss incurred by Makena would not be deductible by you in the future.
+            div(class="mb-4") Makena will inform you of any composite returns filed on your behalf as well as any nonresident state withholding tax paid by Makena on your behalf in conjunction with your #{year} Schedule K-1. As a reminder, #{year} Schedule K-1s are expected to be released DATE.
+            div(class='strong underline mb-4') We recommend that you consult with your tax advisor to determine whether or not you should elect to participate in Makena’s composite returns. 
+            div(class="mb-8") If you choose to participate, please complete the State Composite Return Election Form and return it <span class='strong underline'>no later than DATE</span> to the contacts noted in the form. For new investors, failure to respond will result in exclusion from participating in Makena’s #{year} state composite filings. For those investors who participated in Makena’s #{year - 1} composite filings, we will default with those same elections and apply them to #{year} even if we don’t hear from you this year. You can access your election from prior years within the General Tax Documents category of our secure investor portal <span  class="link underline">(https://investments.makenacap.com/investor-documents)</span>. If you have any questions, please contact Makena Investor Relations at <span class="link underline">clientoperations@makenacap.com</span> or contact Dan Drury at <span class="link underline">tax@makenacap.com</span> or (650) 926-0510.
+            div(class="mb-4") Kind regards,
+            div(class="mb-4") Makena Capital Management, LLC
+            div(class="break")
+        div(class="content second")
+            div(class="strong underline center mb-4") State Composite Return Election Form
+            div(class="mb-2") The completed form should be submitted no later than DATE. If you have multiple investments with Makena, you only need to complete the election form once for each legal investor. This means, if the same legal investor holds an interest in multiple Makena funds we will apply your response to each fund, unless directed otherwise in the comments area below:
+            if comments 
+                div(class="strong comments mb-4") #{comments}
+            div(class="strong mb-2") Section I: Investor Information
+            div Investor name: #{legalName}
+            div Investor #: #{sscId}
+            div Contact name: Makena Investor Relations
+            div(class="mb-2") Contact email: <span class="link underline">ClientOperations@makenacap.com</span> and <span class="link underline">Makena.IR@sscinc.com</span>
+            div(class="mb-2") Please indicate if you wish to participate in the composite tax return. By checking "No", you will not be included in Makena's composite return and no state residency or election is required below. Should you wish to participate in Makena’s composite return please check "Yes" below and continue with the required fields. 
+            div(class="flex mb-4")
+                div(class="flex mr-4")
+                    if participate 
+                        div(class="checkbox checked") X
+                    else 
+                        div(class="checkbox")
+                    label Yes 
+                div(class="flex")
+                    if !participate 
+                        div(class="checkbox checked") X
+                    else 
+                        div(class="checkbox")
+                    label No
+            div(class="strong mb-2") Section II: State(s) of Residency for 2020
+            div Please indicate your state of residency for #{year}: <span class="strong">#{primary_residency? primary_residency : 'None' }</span>
+            div(class="mb-2") Second state of residency for #{year}: <span class="strong">#{secondary_residency? secondary_residency : 'None'}</span>
+            div(class="mb-4") You will be excluded from the composite return for the state(s) of residency you list above. 
+            div(class="strong mb-2") Section III: Composite Return Election
+            p(class="mb-2") Please check the states where you wish to be included in Makena’s composite tax return filings. Please consult with your tax advisor if you have questions regarding your composite return election.
+                div(class="flex")
+                    if allChecked
+                        div(class="checkbox checked") X
+                    else 
+                        div(class="checkbox")
+                    label All States
+            div(class="strong underline center mb-2") States
+            div(class="g")
+                each val in mainStates
+                    div(class="g-4 flex mb-0 state")
+                        if states.find(state => state === val)
+                            div(class="checkbox checked") X
+                        else
+                            div(class="checkbox")
+                        label #{val}
+            div(class="strong underline center mb-4r") Other
+            div(class="g")
+                each val in otherStates
+                    div(class="g-4 flex mb-2 state")
+                        if states.find(state => state === val)
+                            div(class="checkbox checked") X
+                        else
+                            div(class="checkbox")
+                        label #{val}
