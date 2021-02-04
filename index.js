@@ -1,7 +1,9 @@
 const sassMiddleware = require("node-sass-middleware"),
+  dictionary = require("./dictionary"),
   express = require("express"),
   path = require("path"),
-  http = require("http");
+  http = require("http"),
+  fs = require("fs");
 
 const app = express();
 const port = normalizePort(process.env.PORT || "3000");
@@ -52,6 +54,19 @@ app.use(
 app.use(express.static("public"));
 
 app.get("/:view", (req, res) => {
-  const foo = {};
-  res.render(req.params.view, foo);
+  res.render(req.params.view, dictionary[req.params.view] || {});
 });
+
+console.log("\n\nAplicación inicializada:");
+const viewsPath = path.join(__dirname, "views");
+const files = fs.readdirSync(viewsPath);
+
+console.log("\nVistas Disponibles");
+console.log("---------------------------------\n");
+files
+  .filter((file) => fs.lstatSync(path.join(viewsPath, file)).isFile())
+  .forEach((file, index) => {
+    console.log(
+      `${index + 1} - http://127.0.0.1:${port}/${file.split(".")[0]} \n`
+    );
+  });
